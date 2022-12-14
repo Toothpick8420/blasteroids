@@ -12,6 +12,12 @@ from surface import Surface
 # Create Screen
 # Where all the drawing happens
 surface: Surface = Surface(CONSTS.SCREEN_WIDTH, CONSTS.SCREEN_HEIGHT)
+pyg.display.set_caption("Blasteroids")
+
+# Music
+pyg.mixer.init()
+pyg.mixer.music.load("resources/sound/battle.wav")
+pyg.mixer.music.play(loops=-1)
 
 # Pygame clock to control framerate of the game
 clock: pyg.time.Clock = pyg.time.Clock()
@@ -20,9 +26,7 @@ clock: pyg.time.Clock = pyg.time.Clock()
 amount_per_level: int = 5
 level: int = 0
 asteroid_field: list = []
-
 player: Ship = Ship()
-
 highscore = Highscore()
 
 # Set up for the game
@@ -70,7 +74,7 @@ while running:
 
         surface.draw(
             ui.render_text_offset(
-                "Press  Enter  to  Continue",
+                "Press    Enter    to    Continue",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3) - 20,
                 font_size=25,
@@ -78,7 +82,7 @@ while running:
         )
         surface.draw(
             ui.render_text_offset(
-                "Press Esc to Quit",
+                "Press    Esc    to    Quit",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3),
                 font_size=25,
@@ -86,7 +90,7 @@ while running:
         )
         surface.draw(
             ui.render_text_offset(
-                "Press H for Highscores",
+                "Press    H    for    Highscores",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3) + 20,
                 font_size=25,
@@ -94,7 +98,7 @@ while running:
         )
         surface.draw(
             ui.render_text_offset(
-                "Press C for Controls",
+                "Press    C    for    Controls",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3) + 40,
                 font_size=25,
@@ -188,7 +192,7 @@ while running:
 
         surface.draw(
             ui.render_title_offset(
-                "Game Over",
+                "Game    Over",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4),
                 r,
@@ -199,7 +203,7 @@ while running:
 
         surface.draw(
             ui.render_text_offset(
-                "Press Esc to Quit",
+                "Press    Esc    to    Quit",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3),
                 font_size=25,
@@ -207,7 +211,7 @@ while running:
         )
         surface.draw(
             ui.render_text_offset(
-                "Press Enter to Restart",
+                "Press    Enter    to    Restart",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3) + 20,
                 font_size=25,
@@ -215,7 +219,7 @@ while running:
         )
         surface.draw(
             ui.render_text_offset(
-                "Press H for HighScores",
+                "Press    H    for    HighScores",
                 (CONSTS.SCREEN_WIDTH / 2),
                 (CONSTS.SCREEN_HEIGHT / 4 * 3) + 40,
                 font_size=25,
